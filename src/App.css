@@ -41,3 +41,9 @@ p{
     transform: rotate(360deg);
   }
 }
+
+img{
+  width: 400px;
+  margin: 3rem;
+  
+}
