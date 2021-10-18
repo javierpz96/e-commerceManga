@@ -1,13 +1,14 @@
 import React from "react";
 import "./NavBar.css";
 import CartWidget from "../cartWidget/cartWidget";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <>
       <nav class="navbar navbar-expand-lg navbar-light bg-dark ">
         <div class="container-fluid">
-          <a class="navbar-brand" href="6">
+          <a class="navbar-brand" href="/#">
             <p>Comivic</p>
           </a>
           <button
@@ -24,26 +25,31 @@ const NavBar = () => {
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="1">
-                  <p>Home</p>
+                <a class="nav-link active" aria-current="page" href="#">
+                  <Link to="/Home">
+                    <p>Home</p>
+                  </Link>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="2">
-                 <p>Manga</p>
+                <a class="nav-link" href="Manga">
+                  <Link to="/categoria/manga">
+                    <p>Manga</p>
+                  </Link>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="3">
-                  <p>Novels</p>
+                <a class="nav-link" href="Novels">
+                  <Link to="/categoria/novela">
+                    <p>Novels</p>
+                  </Link>
                 </a>
-              </li>  
+              </li>
               <li class="nav-item">
-                <a class="nav-link" href="4">
-                <CartWidget carrito="Cart"/>
+                <a class="nav-link" href="#">
+                  <CartWidget carrito="Cart" />
                 </a>
-              </li>  
-
+              </li>
             </ul>
           </div>
         </div>

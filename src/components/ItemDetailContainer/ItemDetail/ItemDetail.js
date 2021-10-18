@@ -1,20 +1,36 @@
-import React from 'react'
-import ItemCount from '../../button/ItemCount'
+/* eslint-disable max-len */
 
-const ItemDetail = ({nombre,descripcion,precio,idioma,id,img}) => {
-    return (
-        <div className='item'>
-            <h1>ITEM DETAIL</h1>   
-            <h2>{nombre}</h2>
-            <img src={img} alt="imagen" />  
-            <h2>{descripcion}</h2>
-            <h2>${precio}</h2>
-            <h2>{idioma}</h2>
-            <h2>{id}</h2>
-            <ItemCount stock ='30' initial='0'></ItemCount>
-            
-        </div>
-    )
-}
+import React from "react";
+import { Container, Divider, Image } from "semantic-ui-react";
+import ItemCount from "../../button/ItemCount";
+import "./ItemDetail.css";
 
-export default ItemDetail
+const ItemDetail = ({ data }) => (
+  <div>
+    <div className="h1">
+      <Container textAlign="center">
+        <h1>{data.nombre}</h1>
+      </Container>
+    </div>
+    <div className="imagen-detail">
+      <Image
+        className="imagenpng"
+        src={data.imagen}
+        wrapped
+        ui={false}
+        rounded
+      />
+    </div>
+    <Container textAlign="right">{data.idioma}</Container>
+    <Container textAlign="justified">
+      <b>Justified</b>
+      <Divider />
+      {data.descripcion}
+      <div className="container-itemcount">
+        <ItemCount></ItemCount>
+      </div>
+    </Container>
+  </div>
+);
+
+export default ItemDetail;

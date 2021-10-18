@@ -1,0 +1,21 @@
+.container-itemcount{
+    text-align: center;
+    
+}
+
+.imagen-detail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+    margin-right: 15rem;
+}
+
+.imagen-detail img{
+    width: 350px;
+}
+
+.h1 h1{
+    padding-top: 40px;
+}
+

@@ -1,26 +1,16 @@
-.item>img{
-    width: 300px;
-    margin: auto;
-    display: block;
-    margin-top: 60px;
-   
-
+.items{
+    display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+  background-color: #ffffff;
+  padding: 50px;
+  
 }
 
-.item>p{
-    color: black;
-    margin: 30px;
+.imagenpng{
+    width: 200px;
 }
 
-.precio{
-    text-align: center;
-}
 
-.contador{
-    text-align: center;
-}
 
-.item>h2{
-    text-align: center;
-    margin-top: 20px;
-}
+

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./button.css";
 
-
 const ItemCount = (props) => {
   // Estados
 
@@ -58,7 +57,6 @@ const ItemCount = (props) => {
               onClick={sumar}
               type="button"
               class="btn btn-outline-primary"
-              
             >
               +
             </button>
@@ -73,7 +71,6 @@ const ItemCount = (props) => {
               onClick={restar}
               type="button"
               class="btn btn-outline-primary"
-              
             >
               -
             </button>
