@@ -34,7 +34,7 @@ const CardExampleCard = ({ data }) => {
         </Card.Meta>
         <Card.Description>{data.descripcion}</Card.Description>
       </Card.Content>
-      <ItemCount stock="30" initial="0"></ItemCount>
+      
       <Card.Content extra>${data.precio}</Card.Content>
     </Card>
   </Link>

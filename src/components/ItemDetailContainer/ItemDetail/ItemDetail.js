@@ -4,6 +4,7 @@ import React from "react";
 import { Container, Divider, Image } from "semantic-ui-react";
 import ItemCount from "../../button/ItemCount";
 import "./ItemDetail.css";
+import BotonTienda from "../../BotonTienda";
 
 const ItemDetail = ({ data }) => (
   <div>
@@ -27,7 +28,7 @@ const ItemDetail = ({ data }) => (
       <Divider />
       {data.descripcion}
       <div className="container-itemcount">
-        <ItemCount></ItemCount>
+        <ItemCount stock="30" initial="0"></ItemCount>
       </div>
     </Container>
   </div>

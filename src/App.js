@@ -20,6 +20,9 @@ function App() {
         <Route path="/item/:id">
           <ItemDetailContainer />
         </Route>
+        <Route path="/Carrito">
+          
+        </Route>
       </Switch>
     </Router>
   );

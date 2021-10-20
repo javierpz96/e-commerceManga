@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "./button.css";
+import BotonTienda from "../BotonTienda";
 
 const ItemCount = (props) => {
   // Estados
 
   const [unidades, setUnidades] = useState(parseInt(props.initial));
   const [stock, setStock] = useState(parseInt(props.stock));
+  const [boton,setBoton] = useState(false)
 
   // Función de suma
   // Si es 0 va saltar una alerta!
@@ -39,11 +41,19 @@ const ItemCount = (props) => {
   //función onAdd
   //Añade la función de avisarme cuantas unidades acabo de comprar al presionar onAdd
 
-  const onAdd = () => {
-    alert(`se agrego ${unidades} unidades al carrito!`);
-  };
+  const onAdd = () =>{
+    alert(`Se agrego ${unidades} unidades al carrito`)
+    if(unidades>0){
+      setBoton(true)
+    }
+  }
+
+ 
 
   return (
+    
+    
+
     <div className="Contador">
       <p className="m-4">Unidades: {unidades}</p>
       <div className="m-3">
@@ -79,6 +89,9 @@ const ItemCount = (props) => {
       </div>
 
       <p className="m-3">Stock disponible: {stock} </p>
+      
+      {boton && <BotonTienda></BotonTienda>}
+
     </div>
   );
 };
