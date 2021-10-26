@@ -5,10 +5,12 @@ import 'semantic-ui-css/semantic.min.css'
 import { Link } from 'react-router-dom'
 import {data} from '../../data'
 import Spinner from '../../components/spinner/spinner'
-
+import {useCart} from "../../Context"
 
 
 const ItemList = () => {
+
+    
 
     //Estados
 
@@ -27,6 +29,7 @@ const ItemList = () => {
         productos().then((item)=>{
             setProductos(item)
             setCargando(false)
+            
         })
     })
 
@@ -34,6 +37,7 @@ const ItemList = () => {
 
     return (
         <div className="items">
+           
             {cargando ? 
             <div className="spinner-css">
             <Spinner/></div> : 

@@ -8,18 +8,19 @@ import { Link } from "react-router-dom";
 
 const CardExampleCard = ({ data }) => {
 
+  
 
   //Lo envolvemos en un Link
   //Este link to va a filtrar por los parametros que le vamos a pasar
   //En este caso primero va a filtrar por categoria y después por id
 
-  
 
   return (
 
   <Link to ={`/item/${data.id}`}>
     
     <Card>
+      
       <Image
         className="imagenpng"
         src={data.imagen}

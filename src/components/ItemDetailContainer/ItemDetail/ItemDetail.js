@@ -6,7 +6,15 @@ import ItemCount from "../../button/ItemCount";
 import "./ItemDetail.css";
 import BotonTienda from "../../BotonTienda";
 
+
 const ItemDetail = ({ data }) => (
+
+
+
+
+
+
+
   <div>
     <div className="h1">
       <Container textAlign="center">
