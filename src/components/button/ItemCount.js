@@ -1,20 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./button.css";
 import BotonTienda from "../BotonTienda";
+import {CartContext} from '../Context/CartContext'
 
 const ItemCount = (props) => {
   // Estados
 
   const [unidades, setUnidades] = useState(parseInt(props.initial));
   const [stock, setStock] = useState(parseInt(props.stock));
-  const [boton, setBoton] = useState(false);
+  const [boton,setBoton] = useState(false)
+
+  const {addItem} = useContext(CartContext)
 
 
-  //Funciones para los botones
+  // Función de suma
+  // Si es 0 va saltar una alerta!
+  // Si NO es 0 va aumentar una unidad y va a restar 1 al stock
 
-  //-------------------------------------------------------------------------------------------------------
-  //-------------------------------------------------------------------------------------------------------
-  
   const sumar = () => {
     if (stock === 0) {
       alert("no hay mas stock");
@@ -23,6 +25,13 @@ const ItemCount = (props) => {
       setStock(stock - 1);
     }
   };
+
+  //----------------------------------------------------------
+
+  //Función restar
+  //Si unidades es 0 no me va a dejar comprar
+  //Si unidades NO es 0, se va a restar una unidad y sumar una a stock
+  //>>porque estaria dejando item de mi carrito <<
 
   const restar = () => {
     if (unidades === 0) {
@@ -33,16 +42,19 @@ const ItemCount = (props) => {
     }
   };
 
-  const onAdd = () => {
-    if (unidades > 0) {
-      setBoton(true);
+  //función onAdd
+  //Añade la función de avisarme cuantas unidades acabo de comprar al presionar onAdd
+
+  const onAdd = () =>{
+    alert(`Se agrego ${unidades} unidades al carrito`)
+    if(unidades>0){
+      setBoton(true)
+      props.onAdd(unidades)
     }
-  };
-  
-  //------------------------------------------------------------------------------------------------------
-  //------------------------------------------------------------------------------------------------------
+  }
 
   return (
+    
     <div className="Contador">
       <p className="m-4">Unidades: {unidades}</p>
       <div className="m-3">
@@ -64,7 +76,7 @@ const ItemCount = (props) => {
               type="button"
               class="btn btn-outline-success "
             >
-              {boton ? <BotonTienda></BotonTienda> : "Comprar"}
+              Añadir al carrito
             </button>
             <button
               onClick={restar}
@@ -78,6 +90,9 @@ const ItemCount = (props) => {
       </div>
 
       <p className="m-3">Stock disponible: {stock} </p>
+      
+      {boton && <BotonTienda></BotonTienda>}
+
     </div>
   );
 };

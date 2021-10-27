@@ -5,26 +5,30 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import ItemCategoriaContainer from "./components/ItemDetailContainer/ItemDetail/ItemCategoriaContainer";
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { CartProvider } from "./components/Context/CartContext";
+import Cart from '../src/components/cart/Cart'
 
 function App() {
   return (
-    <Router>
-      <NavBar />
-      <Switch>
-        <Route path="/Home">
-          <ItemList />
-        </Route>
-        <Route path="/categoria/:cat">
-          <ItemCategoriaContainer />
-        </Route>
-        <Route path="/item/:id">
-          <ItemDetailContainer />
-        </Route>
-        <Route path="/Carrito">
-          
-        </Route>
-      </Switch>
-    </Router>
+    <CartProvider>
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route path="/Home">
+            <ItemList />
+          </Route>
+          <Route path="/categoria/:cat">
+            <ItemCategoriaContainer />
+          </Route>
+          <Route path="/item/:id">
+            <ItemDetailContainer />
+          </Route>
+          <Route path="/Carrito" exact>
+            <Cart />
+          </Route>
+        </Switch>
+      </Router>
+    </CartProvider>
   );
 }
 
