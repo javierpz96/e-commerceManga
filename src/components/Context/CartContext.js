@@ -10,6 +10,9 @@ export const CartProvider = ({ children }) => {
 
   //Funciones
 
+  //--------------------------------------------------------------------------------------------------------
+  //--------------------------------------------------------------------------------------------------------
+
   //El item existe? le hago un cart.find, por cada vuelta que de el find buscando se va llamar item
   //si ese item.id es IGUAL al item que me esta llegando lo guardo en itemExiste!
 
@@ -17,7 +20,6 @@ export const CartProvider = ({ children }) => {
     const itemExiste = cart.find((item) => item.id === producto.id);
     if (!itemExiste) {
       //Si no existe le voy a pasar un nuevo objeto
-
       setCart([
         ...cart,
         {

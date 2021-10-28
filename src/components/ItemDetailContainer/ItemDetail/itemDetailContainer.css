@@ -1,0 +1,14 @@
+.itemsDos{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px;
+    background-color: #ffffff;
+    padding: 50px;
+    
+}
+
+.spinnerr{
+    
+    position:absolute;
+    left: 1000px;
+}

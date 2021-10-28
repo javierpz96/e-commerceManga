@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { data } from "../../data";
 import Spinner from "../spinner/spinner";
+import "../ItemDetailContainer/ItemDetail/itemDetailContainer.css";
 
 const ItemDetailContainer = () => {
   //Estados
@@ -27,7 +28,7 @@ const ItemDetailContainer = () => {
   useEffect(productos, [id]);
 
   return (
-    <div>
+    <div className="itemsDos">
       {resultado ? <ItemDetail data={resultado[0]} /> : <h1>Cargando...</h1>}
     </div>
   );

@@ -8,13 +8,18 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { CartProvider } from "./components/Context/CartContext";
 import Cart from '../src/components/cart/Cart'
 
+
 function App() {
   return (
+    
     <CartProvider>
+      
       <Router>
         <NavBar />
+        
         <Switch>
           <Route path="/Home">
+          
             <ItemList />
           </Route>
           <Route path="/categoria/:cat">

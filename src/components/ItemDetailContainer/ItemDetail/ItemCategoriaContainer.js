@@ -3,7 +3,10 @@ import ItemDetail from "./ItemDetail";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { data } from "../../../data.js";
-import Spinner from "../../spinner/spinner"
+import Spinner from "../../spinner/spinner";
+import "./itemDetailContainer.css";
+import { Circle, Heart, Facebook } from "react-spinners-css";
+
 const ItemCategoriaContainer = () => {
   //Estados
 
@@ -26,11 +29,13 @@ const ItemCategoriaContainer = () => {
   useEffect(productos, [cat]);
 
   return (
-    <div>
+    <div className="itemsDos">
       {resultado ? (
         resultado.map((elem) => <ItemDetail data={elem} />)
       ) : (
-        <Spinner></Spinner>
+        <div className="spinnerr">
+          <Facebook />
+        </div>
       )}
     </div>
   );
