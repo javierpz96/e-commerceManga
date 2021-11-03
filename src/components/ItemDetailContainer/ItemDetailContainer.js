@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { data } from "../../data";
 import Spinner from "../spinner/spinner";
 import "../ItemDetailContainer/ItemDetail/itemDetailContainer.css";
+import { Circle, Heart, Facebook } from "react-spinners-css";
 
 const ItemDetailContainer = () => {
   //Estados
@@ -28,8 +29,14 @@ const ItemDetailContainer = () => {
   useEffect(productos, [id]);
 
   return (
+    
     <div className="itemsDos">
-      {resultado ? <ItemDetail data={resultado[0]} /> : <h1>Cargando...</h1>}
+
+      {resultado ? <ItemDetail data={resultado[0]} /> : 
+      <div className="spinnerr">
+        <Facebook />  
+      </div>
+      }
     </div>
   );
 };

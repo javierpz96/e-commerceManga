@@ -19,9 +19,10 @@ const CardExampleCard = ({ data }) => {
 
   <Link to ={`/item/${data.id}`}>
     
-    <Card>
+    <Card >
       
-      <Image
+      <Image 
+        
         className="imagenpng"
         src={data.imagen}
         wrapped

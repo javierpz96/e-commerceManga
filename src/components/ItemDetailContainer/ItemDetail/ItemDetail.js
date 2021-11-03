@@ -7,6 +7,7 @@ import "./ItemDetail.css";
 import BotonTienda from "../../BotonTienda";
 import {CartContext} from '../../Context/CartContext'
 import './itemDetailContainer.css'
+import '../../itemList/item/ItemList.css'
 
 const ItemDetail = ({ data }) => {
 
@@ -21,6 +22,7 @@ const ItemDetail = ({ data }) => {
 
 
 <Card className="itemsDos">
+  
     <div className="imagenpng">
       <Image src={data.imagen} wrapped ui={false} />
     </div>
@@ -35,6 +37,7 @@ const ItemDetail = ({ data }) => {
     </Card.Content>
     <Card.Content extra>
     <div className="container-itemcount">
+      
        <ItemCount onAdd={onAddCarrito} stock="30" initial="0"></ItemCount>
       </div>
     </Card.Content>

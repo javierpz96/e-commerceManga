@@ -2,11 +2,16 @@ import React from "react";
 import "./NavBar.css";
 import CartWidget from "../cartWidget/cartWidget";
 import { Link } from "react-router-dom";
+import "../itemList/item/ItemList.css";
 
 const NavBar = () => {
   return (
     <>
       <nav class="navbar navbar-expand-lg navbar-light bg-dark ">
+        <div id="stars"></div>
+
+        <div id="stars2"></div>
+
         <div class="container-fluid">
           <a class="navbar-brand" href="/#">
             <p>Comivic</p>

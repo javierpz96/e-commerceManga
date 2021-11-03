@@ -8,33 +8,36 @@ import Spinner from "../../components/spinner/spinner";
 import { useCart } from "../../Context";
 import { Circle, Heart, Facebook } from "react-spinners-css";
 import "../ItemDetailContainer/ItemDetail/itemDetailContainer.css";
+import { allItem } from "../Firebase/Firebase";
+import { useParams } from "react-router-dom";
 
 const ItemList = () => {
   //Estados
-
+  const { cat } = useParams();
   const [productos, setProductos] = useState([]);
   const [cargando, setCargando] = useState(true);
 
   useEffect(() => {
-    const productos = () => {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve(data);
-        }, 2000);
-      }, []);
-    };
-    productos().then((item) => {
-      setProductos(item);
+    const items = allItem();
+    items.then((data) => {
+      const itemsAux = [];
+      data.forEach((item) => {
+        itemsAux.push({
+          id:item.id,
+          nombre:item.data().nombre,
+          idioma:item.data().idioma,
+          descripcion:item.data().descripcion,
+          imagen:item.data().imagen,
+          precio:item.data().precio,
+        });
+      });
+      setProductos(itemsAux);
       setCargando(false);
     });
-  });
+  }, []);
 
   return (
     <div className="items">
-      
-      <div id="stars"></div>
-      
-      <div id="stars2"></div>
       {cargando ? (
         <div className="spinnerr">
           <Facebook />
@@ -48,11 +51,8 @@ const ItemList = () => {
               </Link>
             </div>
           </div>
-          
         ))
-        
       )}
-     
     </div>
   );
 };

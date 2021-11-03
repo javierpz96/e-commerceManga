@@ -1,34 +1,57 @@
 import React, { useContext } from "react";
 import { CartContext } from "../Context/CartContext";
-import { Image, Item } from "semantic-ui-react";
+import { Image, Item, Card, CardDescription, Button,Message,Icon } from "semantic-ui-react";
 import "./Cart.css";
+import "../itemList/item/ItemList.css";
 
 const Cart = () => {
   const { cart, total, removeItem, clear } = useContext(CartContext);
 
-  return (
-    <div className="CartCSS">
-      {cart.length > 0 ? (
-        cart.map((item) => (
-          <Item>
-            <Item.Content>
-              <Item.Header as="a">{item.nombre}</Item.Header>
-              <Item.Meta>{item.idioma}</Item.Meta>
-              <Item.Description>precio: {item.precio}</Item.Description>
-              <Item.Extra>SubTotal: {item.subTotal}</Item.Extra>
-              <button onClick={() => removeItem(item.id)}>
-                Eliminar producto
-              </button>
-              <button onClick={() => clear()}>Vaciar carrito</button>
-            </Item.Content>
+  if (cart.length === 0) {
+    return (
+      <div className="Error">
+        <Message>
+          <Message.Header>Whoops!</Message.Header>
+          <p>
+          <Icon link name='close' /> El carrito aún no tiene ningun producto, te esperaremos hasta que puedas encontrar el que te guste <Icon link name='heart' />
+          </p>
+        </Message>
+        
+      </div>
+    );
+  }
 
-            <Item.Image size="tiny" src={item.imagen} />
-          </Item>
-        ))
-      ) : (
-        <div>El carrito se encuentra vacio</div>
-      )}
+  return (
+    
+    <div className="items cartcart">
+      
+      {cart.map((item) => (
+        <Card color="green">
+          <Image className="imagenpng" src={item.imagen} wrapped ui={false} />
+          <Card.Content>
+            <Card.Header>{item.nombre}</Card.Header>
+            <Card.Meta></Card.Meta>
+            <Card.Description>Precio: {item.precio}</Card.Description>
+            <Card.Description>Subtotal: {item.subTotal}</Card.Description>
+            <CardDescription>
+              <Button onClick={() => removeItem(item.id)} color="google plus">
+                Eliminar articulo
+              </Button>
+            </CardDescription>
+          </Card.Content>
+        </Card>
+      ))}
+      <div className="SeccionCarrito">
+      <h2>Total carrito: {total}</h2>
+      <div className="Vaciar">
+      <Button onClick={() => clear()} color="google plus">
+                Vaciar Carrito
+              </Button>
+      </div>
+      
+      </div>
     </div>
+    
   );
 };
 

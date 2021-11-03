@@ -6,6 +6,8 @@ import { data } from "../../../data.js";
 import Spinner from "../../spinner/spinner";
 import "./itemDetailContainer.css";
 import { Circle, Heart, Facebook } from "react-spinners-css";
+import "../../itemList/item/ItemList.css";
+import { allItem, itemCat } from "../../Firebase/Firebase";
 
 const ItemCategoriaContainer = () => {
   //Estados
@@ -14,19 +16,32 @@ const ItemCategoriaContainer = () => {
 
   const { cat } = useParams();
 
-  const productos = () => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(data);
-      }, 1000);
-    }).then((result) => {
-      const producto = result.filter((elem) => elem.categoria === cat);
 
-      setResultado(producto);
+  useEffect(() => {
+    const items = itemCat(cat);
+    items.then((data) => {
+      console.log(data)
+      const itemsAux = [];
+      const producto = data.filter((item) => item.categoria === item.data().categoria);
+      if (producto === true){
+        data.forEach((item) => {
+          itemsAux.push({
+            id:item.id,
+            nombre:item.data().nombre,
+            idioma:item.data().idioma,
+            descripcion:item.data().descripcion,
+            imagen:item.data().imagen,
+            precio:item.data().precio,
+          });
+        });
+        setResultado(itemsAux)
+        
+      }
     });
-  };
+  },[]);
 
-  useEffect(productos, [cat]);
+
+
 
   return (
     <div className="itemsDos">
