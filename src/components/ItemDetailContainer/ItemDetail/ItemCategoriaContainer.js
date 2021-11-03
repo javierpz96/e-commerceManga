@@ -20,10 +20,7 @@ const ItemCategoriaContainer = () => {
   useEffect(() => {
     const items = itemCat(cat);
     items.then((data) => {
-      console.log(data)
       const itemsAux = [];
-      const producto = data.filter((item) => item.categoria === item.data().categoria);
-      if (producto === true){
         data.forEach((item) => {
           itemsAux.push({
             id:item.id,
@@ -35,10 +32,9 @@ const ItemCategoriaContainer = () => {
           });
         });
         setResultado(itemsAux)
-        
-      }
+      
     });
-  },[]);
+  });
 
 
 
