@@ -30,5 +30,11 @@ export const itemCat = (categoria) => {
     return q3
   };
 
+export const only =(id)=>{
+  const q = doc(db,'items',id)
+  const q2 = getDoc(q)
+  return q2
+}
+    
 
 

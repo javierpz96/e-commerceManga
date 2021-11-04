@@ -6,6 +6,7 @@ import { data } from "../../data";
 import Spinner from "../spinner/spinner";
 import "../ItemDetailContainer/ItemDetail/itemDetailContainer.css";
 import { Circle, Heart, Facebook } from "react-spinners-css";
+import { only } from "../Firebase/Firebase";
 
 const ItemDetailContainer = () => {
   //Estados
@@ -14,25 +15,29 @@ const ItemDetailContainer = () => {
 
   const { id } = useParams();
 
-  const productos = () => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(data);
-      }, 1000);
-    }).then((result) => {
-      const producto = result.filter((elem) => elem.id == id);
+  // const items = allItem()
+  // items.then((result) => {
+  //     const producto = result.filter((item) => item.id === id);
 
-      setResultado(producto);
-    });
-  };
+  //     setResultado(producto);
+  //   });
+  // };
 
-  useEffect(productos, [id]);
+  // useEffect(productos, [id]);
+
+  useEffect(()=>{
+    const item = only(id)
+    item.then((data)=>{
+      setResultado(data.data())
+    })
+  },[id])
+
 
   return (
     
     <div className="itemsDos">
 
-      {resultado ? <ItemDetail data={resultado[0]} /> : 
+      {resultado ? <ItemDetail data={resultado} /> : 
       <div className="spinnerr">
         <Facebook />  
       </div>

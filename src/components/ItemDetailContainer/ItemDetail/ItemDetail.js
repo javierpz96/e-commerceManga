@@ -8,6 +8,7 @@ import BotonTienda from "../../BotonTienda";
 import {CartContext} from '../../Context/CartContext'
 import './itemDetailContainer.css'
 import '../../itemList/item/ItemList.css'
+import { itemCat } from "../../Firebase/Firebase";
 
 const ItemDetail = ({ data }) => {
 
