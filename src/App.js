@@ -7,6 +7,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { CartProvider } from "./components/Context/CartContext";
 import Cart from '../src/components/cart/Cart'
+import Envio from '../src/components/EnvioCompra/Envio'
 
 
 function App() {
@@ -31,6 +32,12 @@ function App() {
           <Route path="/Carrito" exact>
             <Cart />
           </Route>
+
+          <Route path="/Envio" exact>
+            <Envio/>
+          </Route>
+
+
         </Switch>
       </Router>
     </CartProvider>

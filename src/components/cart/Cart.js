@@ -3,6 +3,7 @@ import { CartContext } from "../Context/CartContext";
 import { Image, Item, Card, CardDescription, Button,Message,Icon } from "semantic-ui-react";
 import "./Cart.css";
 import "../itemList/item/ItemList.css";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { cart, total, removeItem, clear } = useContext(CartContext);
@@ -37,6 +38,14 @@ const Cart = () => {
               <Button onClick={() => removeItem(item.id)} color="google plus">
                 Eliminar articulo
               </Button>
+
+            
+              <Link to={`/Envio`}>
+              <Button positive>Terminar compra</Button>
+              </Link>
+
+
+              
             </CardDescription>
           </Card.Content>
         </Card>

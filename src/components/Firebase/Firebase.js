@@ -1,7 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { doc, getFirestore } from "firebase/firestore";
-import { collection, getDocs, where, query, getDoc } from "firebase/firestore";
+import { collection, getDocs, where, query, getDoc,addDoc} from "firebase/firestore";
+
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyBCloWrCgvfvqvGirgatC3EsfOAneXNjKs",
@@ -14,7 +16,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getFirestore();
+export const db = getFirestore();
 
 //Función para traer todos los items de la base de datos
 
