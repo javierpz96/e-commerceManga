@@ -4,15 +4,17 @@ import { collection, addDoc } from "firebase/firestore";
 import { db } from "../Firebase/Firebase";
 import { Message } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import InfoEnvio from "../InfoEnvio/InfoEnvio";
+import "./Envio.css"
+
+export const ThemeContext = React.createContext()
 
 
 
-
-
-
-const DatosProvider = ({ children }) => {
+const DatosProvider = () => {
   const [inputValue, setInputValue] = useState();
   const [apellido, setApellido] = useState();
+  const [compras,setCompras] = useState(null)
 
   const onChange = (e) => {
     setInputValue(e.target.value);
@@ -30,7 +32,11 @@ const DatosProvider = ({ children }) => {
     console.log("el documento de la compra tiene el id:", docRef.id);
     setInputValue("");
     setApellido("");
+    setCompras(docRef.id)
+    
   };
+
+  
 
   return (
     <Form onSubmit={registrarCompra}>
@@ -61,13 +67,18 @@ const DatosProvider = ({ children }) => {
         <Form.Input placeholder="6 Wide" width={6} />
         <Form.Input placeholder="2 Wide" width={2} />
       </Form.Group>
+
       
-      
-      <Link to={`/InfoEnvio`}>
-              <button onClick={registrarCompra}>Comprar!</button>
-       </Link>
-       
- 
+      <button onClick={registrarCompra}>Comprar!</button>
+
+      {compras && <Message className="pMensaje">
+    <Message.Header>Changes in Service</Message.Header>
+    <p>
+      Su id de compra es: {compras}
+    </p>
+  </Message>}
+
+
         
 
     </Form>
