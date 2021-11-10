@@ -1,6 +1,13 @@
 import React, { useContext } from "react";
 import { CartContext } from "../Context/CartContext";
-import { Image, Item, Card, CardDescription, Button,Message,Icon } from "semantic-ui-react";
+import {
+  Image,
+  Card,
+  CardDescription,
+  Button,
+  Message,
+  Icon,
+} from "semantic-ui-react";
 import "./Cart.css";
 import "../itemList/item/ItemList.css";
 import { Link } from "react-router-dom";
@@ -14,18 +21,17 @@ const Cart = () => {
         <Message>
           <Message.Header>Whoops!</Message.Header>
           <p>
-          <Icon link name='close' /> El carrito aún no tiene ningun producto, te esperaremos hasta que puedas encontrar el que te guste <Icon link name='heart' />
+            <Icon link name="close" /> El carrito aún no tiene ningun producto,
+            te esperaremos hasta que puedas encontrar el que te guste{" "}
+            <Icon link name="heart" />
           </p>
         </Message>
-        
       </div>
     );
   }
 
   return (
-    
     <div className="items cartcart">
-      
       {cart.map((item) => (
         <Card color="green">
           <Image className="imagenpng" src={item.imagen} wrapped ui={false} />
@@ -39,28 +45,22 @@ const Cart = () => {
                 Eliminar articulo
               </Button>
 
-            
               <Link to={`/Envio`}>
-              <Button positive>Terminar compra</Button>
+                <Button positive>Terminar compra</Button>
               </Link>
-
-
-              
             </CardDescription>
           </Card.Content>
         </Card>
       ))}
       <div className="SeccionCarrito">
-      <h2>Total carrito: {total}</h2>
-      <div className="Vaciar">
-      <Button onClick={() => clear()} color="google plus">
-                Vaciar Carrito
-              </Button>
-      </div>
-      
+        <h2>Total carrito: {total}</h2>
+        <div className="Vaciar">
+          <Button onClick={() => clear()} color="google plus">
+            Vaciar Carrito
+          </Button>
+        </div>
       </div>
     </div>
-    
   );
 };
 

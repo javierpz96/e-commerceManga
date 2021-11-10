@@ -3,21 +3,18 @@ import { Form } from "semantic-ui-react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../Firebase/Firebase";
 import { Message } from "semantic-ui-react";
-import { Link } from "react-router-dom";
-import InfoEnvio from "../InfoEnvio/InfoEnvio";
-import "./Envio.css"
+import "./Envio.css";
 
-export const ThemeContext = React.createContext()
-
-
+export const ThemeContext = React.createContext();
 
 const DatosProvider = () => {
-  const [inputValue, setInputValue] = useState();
+  const [nombre, setNombre] = useState();
   const [apellido, setApellido] = useState();
-  const [compras,setCompras] = useState(null)
+  const [compras, setCompras] = useState(null);
+  const [dia, setDia] = useState();
 
   const onChange = (e) => {
-    setInputValue(e.target.value);
+    setNombre(e.target.value);
   };
 
   const onChangeApellido = (e) => {
@@ -26,24 +23,25 @@ const DatosProvider = () => {
 
   const registrarCompra = async () => {
     const docRef = await addDoc(collection(db, "compras"), {
-      name: inputValue,
+      name: nombre,
       apellido: apellido,
     });
     console.log("el documento de la compra tiene el id:", docRef.id);
-    setInputValue("");
+    setNombre("");
     setApellido("");
-    setCompras(docRef.id)
-    
+    setCompras(docRef.id);
+    setDia(new Date());
   };
 
-  
+  console.log(nombre);
+  console.log(compras);
 
   return (
     <Form onSubmit={registrarCompra}>
       <Form.Group>
         <Form.Input
           onChange={onChange}
-          value={inputValue}
+          value={nombre}
           label="First name"
           placeholder="First Name"
           width={6}
@@ -68,19 +66,19 @@ const DatosProvider = () => {
         <Form.Input placeholder="2 Wide" width={2} />
       </Form.Group>
 
-      
       <button onClick={registrarCompra}>Comprar!</button>
 
-      {compras && <Message className="pMensaje">
-    <Message.Header>Changes in Service</Message.Header>
-    <p>
-      Su id de compra es: {compras}
-    </p>
-  </Message>}
-
-
-        
-
+      {compras && (
+        <Message className="pMensaje">
+          <Message.Header>
+            <p>Felicidades {nombre}</p>
+          </Message.Header>
+          <p>
+            Su id de compra es: {compras}
+            el dia:
+          </p>
+        </Message>
+      )}
     </Form>
   );
 };

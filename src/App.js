@@ -9,8 +9,6 @@ import { CartProvider } from "./components/Context/CartContext";
 import Cart from "../src/components/cart/Cart";
 import Envio from "../src/components/EnvioCompra/Envio";
 import InfoEnvio from "../src/components/InfoEnvio/InfoEnvio";
-import { ThemeContext } from "../src/components/EnvioCompra/Envio";
-import {DatosProvider} from '../src/components/EnvioCompra/Envio'
 
 function App() {
   return (

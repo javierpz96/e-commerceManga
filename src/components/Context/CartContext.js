@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { CommentText } from "semantic-ui-react";
-
 export const CartContext = React.createContext();
 
 export const CartProvider = ({ children }) => {
@@ -11,15 +9,10 @@ export const CartProvider = ({ children }) => {
   //Funciones
 
   //--------------------------------------------------------------------------------------------------------
-  
-
-  //El item existe? le hago un cart.find, por cada vuelta que de el find buscando se va llamar item
-  //si ese item.id es IGUAL al item que me esta llegando lo guardo en itemExiste!
 
   const addItem = (producto, cantidad) => {
     const itemExiste = cart.find((item) => item.id === producto.id);
     if (!itemExiste) {
-      //Si no existe le voy a pasar un nuevo objeto
       setCart([
         ...cart,
         {
@@ -32,11 +25,7 @@ export const CartProvider = ({ children }) => {
         },
       ]);
 
-      //Voy a agregar las unidades, no importa si son 5 remeras, va ser 1 producto
-
       setUnidades(unidades + 1);
-
-      //Sacamos la cantidad de los productos
 
       setTotal(total + producto.precio * cantidad);
     } else {
