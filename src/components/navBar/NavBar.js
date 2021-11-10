@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import "../itemList/item/ItemList.css";
 
 const NavBar = () => {
+  //
   return (
     <>
       <nav class="navbar navbar-expand-lg navbar-light bg-dark ">
