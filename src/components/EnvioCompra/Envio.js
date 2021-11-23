@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form } from "semantic-ui-react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../Firebase/Firebase";
-import { Message } from "semantic-ui-react";
+import { Message, Button } from "semantic-ui-react";
 import "./Envio.css";
 
 export const ThemeContext = React.createContext();
@@ -38,44 +38,48 @@ const DatosProvider = () => {
 
   return (
     <Form onSubmit={registrarCompra}>
+      <div className="FormularioE">
       <Form.Group>
         <Form.Input
           onChange={onChange}
           value={nombre}
-          label="First name"
-          placeholder="First Name"
+          label="Nombre"
+          placeholder="Primer nombre"
           width={6}
         />
         <Form.Input
           onChange={onChangeApellido}
           value={apellido}
-          label="Middle Name"
-          placeholder="Middle Name"
+          label="Segundo nombre"
+          placeholder="Segundo nombre"
           width={4}
         />
-        <Form.Input label="Last Name" placeholder="Last Name" width={6} />
+        <Form.Input label="Apellido" placeholder="Apellido" width={6} />
       </Form.Group>
       <Form.Group>
-        <Form.Input placeholder="2 Wide" width={2} />
-        <Form.Input placeholder="12 Wide" width={12} />
-        <Form.Input placeholder="2 Wide" width={2} />
+        <Form.Input placeholder="Codigo postal" width={2} />
+        <Form.Input placeholder="Calle y entrecalle" width={12} />
+        <Form.Input placeholder="Ciudad" width={2} />
       </Form.Group>
       <Form.Group>
-        <Form.Input placeholder="8 Wide" width={8} />
-        <Form.Input placeholder="6 Wide" width={6} />
-        <Form.Input placeholder="2 Wide" width={2} />
+        <Form.Input placeholder="Numero de telefono" width={8} />
+  
       </Form.Group>
-
-      <button onClick={registrarCompra}>Comprar!</button>
+      </div>
+      <div className="TerminarCompra">
+      <Button onClick={registrarCompra} color='green'>Completar compra</Button>
+      </div>
 
       {compras && (
         <Message className="pMensaje">
           <Message.Header>
-            <p>Felicidades {nombre}</p>
+            <div className="felicidades">
+            <p>Felicidades 🎉 {nombre}</p>
+            </div>
           </Message.Header>
           <p>
             Su id de compra es: {compras}
-            el dia:
+            
           </p>
         </Message>
       )}

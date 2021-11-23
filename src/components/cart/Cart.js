@@ -13,18 +13,20 @@ import "../itemList/item/ItemList.css";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const { cart, total, removeItem, clear } = useContext(CartContext);
+  const { cart, total, removeItem, clear,unidades } = useContext(CartContext);
 
   if (cart.length === 0) {
     return (
       <div className="Error">
         <Message>
           <Message.Header>Whoops!</Message.Header>
+          <div className="Error2">
           <p>
             <Icon link name="close" /> El carrito aún no tiene ningun producto,
             te esperaremos hasta que puedas encontrar el que te guste{" "}
             <Icon link name="heart" />
           </p>
+          </div>
         </Message>
       </div>
     );
@@ -33,35 +35,42 @@ const Cart = () => {
   return (
     <div className="items cartcart">
       {cart.map((item) => (
-        <Card color="green">
-          <Image className="imagenpng" src={item.imagen} wrapped ui={false} />
+        <Card color="green" className="cardItem">
+          <Image className="imagenpng" src={item.imagen} />
           <Card.Content>
             <Card.Header>{item.nombre}</Card.Header>
             <Card.Meta></Card.Meta>
             <Card.Description>Precio: {item.precio}</Card.Description>
+            <Card.Description>Cantidad: {unidades}</Card.Description>
             <Card.Description>Subtotal: {item.subTotal}</Card.Description>
             <CardDescription>
-              <Button onClick={() => removeItem(item.id)} color="google plus">
-                Eliminar articulo
-              </Button>
+              <div className="boton1">
+                <Button onClick={() => removeItem(item.id)} color="google plus">
+                  Eliminar articulo
+                </Button>
+              </div>
 
               <Link to={`/Envio`}>
-                <Button positive>Terminar compra</Button>
+                <div className="boton2">
+                  <Button positive>Terminar compra</Button>
+                </div>
               </Link>
             </CardDescription>
           </Card.Content>
         </Card>
       ))}
-      <div className="SeccionCarrito">
-        <h2>Total carrito: {total}</h2>
-        <div className="Vaciar">
+          <div className="Vaciar">
           <Button onClick={() => clear()} color="google plus">
             Vaciar Carrito
           </Button>
         </div>
-      </div>
+      {/* <div className="SeccionCarrito">
+        <h2>Total carrito: {total}</h2>
+      </div> */}
     </div>
+    
   );
+
 };
 
 export default Cart;

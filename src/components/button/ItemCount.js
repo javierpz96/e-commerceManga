@@ -17,7 +17,6 @@ const ItemCount = (props) => {
 
   const sumar = () => {
     if (stock === 0) {
-      alert("no hay mas stock");
     } else {
       setUnidades(unidades + 1);
       setStock(stock - 1);
@@ -27,16 +26,15 @@ const ItemCount = (props) => {
 
   const restar = () => {
     if (unidades === 0) {
-      alert("no puedes comprar negativo");
     } else {
       setUnidades(unidades - 1);
       setStock(stock + 1);
     }
   };
 
+  console.log(unidades)
 
   const onAdd = () => {
-    alert(`Se agrego ${unidades} unidades al carrito`);
     if (unidades > 0) {
       setBoton(true);
       props.onAdd(unidades);

@@ -9,16 +9,27 @@ import { CartProvider } from "./components/Context/CartContext";
 import Cart from "../src/components/cart/Cart";
 import Envio from "../src/components/EnvioCompra/Envio";
 import InfoEnvio from "../src/components/InfoEnvio/InfoEnvio";
+import Carrusel from "./components/Carousel/Carrusel";
+import NavBar2 from './components/navBar/navBar2'
+import Divider from './components/divider/Divider'
+import Aviso from './components/Aviso/Aviso'
+import Beneficios from "./components/Beneficios/Beneficios";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
     <CartProvider>
       
       <Router>
-        <NavBar />
+        <Aviso></Aviso>
+        <NavBar2></NavBar2>
+        <Divider></Divider>
 
         <Switch>
           <Route path="/Home">
+            <Carrusel></Carrusel>
+            <Beneficios></Beneficios>
+            
             <ItemList />
           </Route>
           <Route path="/categoria/:cat">
@@ -41,7 +52,7 @@ function App() {
           
         </Switch>
       </Router>
-      
+      <Footer></Footer>
     </CartProvider>
   );
 }

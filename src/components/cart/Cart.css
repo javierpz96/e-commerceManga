@@ -2,13 +2,14 @@
   align-items: center;
   text-align: center;
   margin-left: 40px;
+  
 }
 
 .Vaciar Button {
   position: absolute;
   left: 36%;
   width: 400px;
-  bottom: 25%;
+  bottom: -30px;
 }
 
 .SeccionCarrito h2 {
@@ -23,6 +24,8 @@
 
 .cartcart {
   background-color: rgb(255, 255, 255);
+  margin: 15px;
+  
 }
 
 .Error p{
@@ -30,11 +33,26 @@
 }
 
 .Error{
-    
+  
     width: 50rem;
-    margin:auto;
     margin-top: 5rem;
+    display: flex;
+    justify-content: center;
     text-align: center;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 293px;
+    margin-top: 150px;
 }
+
+.boton1{
+  text-align: center;
+  margin: 20px;
+}
+
+.boton2{
+  text-align: center;
+}
+
 
 

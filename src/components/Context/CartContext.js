@@ -25,7 +25,7 @@ export const CartProvider = ({ children }) => {
         },
       ]);
 
-      setUnidades(unidades + 1);
+      setUnidades(unidades + cantidad);
 
       setTotal(total + producto.precio * cantidad);
     } else {
@@ -33,11 +33,14 @@ export const CartProvider = ({ children }) => {
         if (item.id === producto.id) {
           item.cantidad += cantidad;
           item.subTotal += producto.precio * cantidad;
+          
+          
         }
         return item;
       });
       setCart(cartAux);
       setTotal(total + producto.precio * cantidad);
+      
     }
   };
 
@@ -58,7 +61,7 @@ export const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cart, unidades, total, addItem, removeItem, clear }}
+      value={{ cart, unidades, total, addItem, removeItem, clear}}
     >
       {children}
     </CartContext.Provider>

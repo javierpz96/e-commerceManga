@@ -26,7 +26,7 @@ const ItemDetail = ({ data }) => {
         <Card.Meta>
           <span className="date">{data.precio}</span>
         </Card.Meta>
-        <Card.Description>{data.descripcion}</Card.Description>
+        <Card.Description numberOfLines={1}>{data.descripcion}</Card.Description>
       </Card.Content>
       <Card.Content extra>
         <div className="container-itemcount">

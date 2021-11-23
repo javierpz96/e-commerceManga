@@ -1,0 +1,21 @@
+.Carrusel img{
+    height: auto;
+    width: auto;
+    margin: auto;
+    max-width: 100%;
+}
+
+.Carrusel{
+    margin-left: 650px;
+    margin-right: 650px;
+    margin-top: 30px;
+    
+}
+
+.Carrusel p{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    color:rgb(250, 177, 177);
+    
+}

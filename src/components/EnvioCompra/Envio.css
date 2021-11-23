@@ -1,3 +1,30 @@
 .pMensaje p{
     color: black;
 }
+
+.FormularioE{
+    margin: 130px;
+}
+
+.TerminarCompra{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 70px;
+    
+    
+    
+}
+
+.pMensaje{
+
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    
+    
+}
+
+.felicidades{
+    margin-bottom: 10px;
+}
