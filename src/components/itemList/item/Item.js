@@ -11,7 +11,6 @@ const CardExampleCard = ({ data }) => {
         <Image
           className="imagenpng"
           src={data.imagen}
-          
           ui={false}
           rounded
         />

@@ -16,6 +16,7 @@ import Aviso from './components/Aviso/Aviso'
 import Beneficios from "./components/Beneficios/Beneficios";
 import Footer from "./components/footer/Footer";
 
+
 function App() {
   return (
     <CartProvider>
@@ -29,6 +30,7 @@ function App() {
           <Route path="/Home">
             <Carrusel></Carrusel>
             <Beneficios></Beneficios>
+            
             
             <ItemList />
           </Route>

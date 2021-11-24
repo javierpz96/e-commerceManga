@@ -8,13 +8,13 @@ import "./ItemDetail.css";
 import { CartContext } from "../../Context/CartContext";
 import "./itemDetailContainer.css";
 import "../../itemList/item/ItemList.css";
+import Cart from "../../cart/Cart";
 
 const ItemDetail = ({ data }) => {
-  const { addItem} = useContext(CartContext);
+  const { addItem, unidades, setUnidades, cart} = useContext(CartContext);
 
-  const onAddCarrito = (cantidad) => {
-    addItem(data, cantidad);
-  };
+
+  
 
   return (
     <Card className="itemsDos">
@@ -30,7 +30,7 @@ const ItemDetail = ({ data }) => {
       </Card.Content>
       <Card.Content extra>
         <div className="container-itemcount">
-          <ItemCount onAdd={onAddCarrito} stock="30" initial="0"></ItemCount>
+          <ItemCount data={data} stock="30" initial="0"></ItemCount>
         </div>
       </Card.Content>
     </Card>

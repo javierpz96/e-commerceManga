@@ -33,12 +33,15 @@ const DatosProvider = () => {
     setDia(new Date());
   };
 
+  
+
   console.log(nombre);
   console.log(compras);
 
   return (
     <Form onSubmit={registrarCompra}>
       <div className="FormularioE">
+        
       <Form.Group>
         <Form.Input
           onChange={onChange}

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { CartContext } from "../Context/CartContext";
 import {
   Image,
@@ -32,6 +32,8 @@ const Cart = () => {
     );
   }
 
+ 
+
   return (
     <div className="items cartcart">
       {cart.map((item) => (
@@ -41,7 +43,7 @@ const Cart = () => {
             <Card.Header>{item.nombre}</Card.Header>
             <Card.Meta></Card.Meta>
             <Card.Description>Precio: {item.precio}</Card.Description>
-            <Card.Description>Cantidad: {unidades}</Card.Description>
+            <Card.Description>Cantidad: {item.cantidad}</Card.Description>
             <Card.Description>Subtotal: {item.subTotal}</Card.Description>
             <CardDescription>
               <div className="boton1">

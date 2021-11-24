@@ -1,17 +1,17 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./button.css";
-import BotonTienda from "../BotonTienda";
+import BotonTienda from "./BotonTienda";
 import { CartContext } from "../Context/CartContext";
 
 const ItemCount = (props) => {
 
   //Estados
 
-  const [unidades, setUnidades] = useState(parseInt(props.initial));
+ 
   const [stock, setStock] = useState(parseInt(props.stock));
   const [boton, setBoton] = useState(false);
 
-  const {} = useContext(CartContext);
+  const {unidades, setUnidades, addItem, cart} = useContext(CartContext);
 
   //Funciones
 
@@ -32,14 +32,18 @@ const ItemCount = (props) => {
     }
   };
 
-  console.log(unidades)
-
-  const onAdd = () => {
+  const onAdd = (data, cantidad) => {
     if (unidades > 0) {
-      setBoton(true);
-      props.onAdd(unidades);
+      addItem(data, cantidad)
+      setUnidades(0)
     }
   };
+
+
+  useEffect(()=> {
+    console.log("cart --->",cart)
+  }, [cart])
+  
 
   return (
     <div className="Contador">
@@ -59,7 +63,10 @@ const ItemCount = (props) => {
               +
             </button>
             <button
-              onClick={onAdd}
+              onClick={() => {
+                setBoton(true)
+                onAdd(props.data, unidades)
+              }}
               type="button"
               class="btn btn-outline-success "
             >
