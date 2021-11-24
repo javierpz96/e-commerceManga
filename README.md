@@ -1,6 +1,6 @@
 Este proyecto es un E-commerce de computacion realizado en el curso de ReactJs de [CoderHouse](https://www.coderhouse.com/)
 
-![Preview](/preview.gif)
+![](https://im2.ezgif.com/tmp/ezgif-2-82a5d3140a2b.gif)
 
 ## Que se usa?
 Esta construido utilizando
