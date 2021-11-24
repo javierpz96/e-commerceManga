@@ -11,7 +11,7 @@ const DatosProvider = () => {
   const [nombre, setNombre] = useState();
   const [apellido, setApellido] = useState();
   const [compras, setCompras] = useState(null);
-  const [dia, setDia] = useState();
+
 
   const onChange = (e) => {
     setNombre(e.target.value);
@@ -30,13 +30,11 @@ const DatosProvider = () => {
     setNombre("");
     setApellido("");
     setCompras(docRef.id);
-    setDia(new Date());
+    
   };
 
   
 
-  console.log(nombre);
-  console.log(compras);
 
   return (
     <Form onSubmit={registrarCompra}>
@@ -77,7 +75,7 @@ const DatosProvider = () => {
         <Message className="pMensaje">
           <Message.Header>
             <div className="felicidades">
-            <p>Felicidades 🎉 {nombre}</p>
+            <p>Felicidades su compra fue un exito 🎉</p>
             </div>
           </Message.Header>
           <p>

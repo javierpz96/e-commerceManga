@@ -41,7 +41,7 @@ const ItemCount = (props) => {
 
 
   useEffect(()=> {
-    console.log("cart --->",cart)
+    
   }, [cart])
   
 

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { CartContext } from "../Context/CartContext";
 import {
   Image,
@@ -13,7 +13,7 @@ import "../itemList/item/ItemList.css";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const { cart, total, removeItem, clear,unidades } = useContext(CartContext);
+  const { cart, removeItem, clear } = useContext(CartContext);
 
   if (cart.length === 0) {
     return (

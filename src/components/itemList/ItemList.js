@@ -7,11 +7,8 @@ import { Link } from "react-router-dom";
 import { Facebook } from "react-spinners-css";
 import "../ItemDetailContainer/ItemDetail/itemDetailContainer.css";
 import { allItem } from "../Firebase/Firebase";
-import { useParams } from "react-router-dom";
 
 const ItemList = () => {
-  //Estados
-  const { cat } = useParams();
   const [productos, setProductos] = useState([]);
   const [cargando, setCargando] = useState(true);
 

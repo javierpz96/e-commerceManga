@@ -1,17 +1,16 @@
 /* eslint-disable max-len */
 
-import React, { useContext } from "react";
+import React from "react";
 import { Card, Image } from "semantic-ui-react";
 import ItemCount from "../../button/ItemCount";
 import "./ItemDetail.css";
 
-import { CartContext } from "../../Context/CartContext";
+
 import "./itemDetailContainer.css";
 import "../../itemList/item/ItemList.css";
-import Cart from "../../cart/Cart";
 
 const ItemDetail = ({ data }) => {
-  const { addItem, unidades, setUnidades, cart} = useContext(CartContext);
+  
 
 
   

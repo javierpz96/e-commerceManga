@@ -11,7 +11,7 @@ const NavBar2 = () => {
       <ul class="menu">
         <li>
             <div className="shrink">
-          <img src={logo}/>
+          <img src={logo} alt="logoPagina"/>
             </div>
         </li>
         <div className="Navegador3">
