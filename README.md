@@ -7,7 +7,7 @@ Esta construido utilizando
 - [ReactJS](https://reactjs.org)
 - [Material UI](https://mui.com)
 
-Se hace uso de promises, renderizado condicional, componentes, context..
+Se hace uso de promises, renderizado condicional, componentes, context, se utilizan hooks como useState y UseEffect, etc
 
 ## Como ejecutarlo?
 1. Clonar este repositorio
